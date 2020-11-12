@@ -1,0 +1,11 @@
+<form action="" [formGroup]="form" (ngSubmit) = "aggiungiCategoria()" class="form-group">
+    <input type="text" placeholder="Descrizione" formControlName = "descrizione" class="form-control">
+    <br>
+    <input type="number" placeholder="Prezzo Giornaliero" formControlName = "prezzo_giornaliero" class="form-control">
+    <br>
+    <input type="number" placeholder="Prezzo Settimanale" formControlName = "prezzo_settimanale" class="form-control">
+    <br>
+    <input type="number" placeholder="Prezzo Mensile" formControlName = "prezzo_mensile" class="form-control">
+    <br>
+    <input type="submit" value={{bottone}} class="btn btn-primary">
+</form>

@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+<h1>Qualcosa su Questo Autonoleggio</h1>
+<div class="row">
+    <div class="col-lg-8">
+        <div class="border-0 bg-light rounded">
+            <h3>Database Relazionale con MySQL</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Ho usato il Database Autonoleggio usato in classe per la realizzazione di questo progetto</li>
+                <li class="list-group-item">Il database si trova in Localhost, alla porta di Default 3306</li>
+                <li class="list-group-item"><mark>Le query non vengono fatte direttamente al DB, ma vengono gestite attraverso un Back End</mark></li>
+                <li class="list-group-item">Ho realizzato questa Web-App per poter gestire il Database e fare le operazioni CRUD (Create, Read, Update, Delete) su questo Database da remoto, una volta rilasciato su un hosting specifico</li>
+            </ul>
+        </div>
+        <div class="border-0 bg-light rounded">
+            <h3>Backend con Express</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Mi sono affidato a una <a href="https://developer.okta.com/blog/2019/08/16/angular-mysql-express">Guida Online </a>per la Realizzazione del Backend, un server basato sulla libreria Express e Router, in Node.js</li>
+                <li class="list-group-item">Il Server si trova in Localhost alla porta 8080, che gestisce le chiamate al DB in base alle chiamate che riceve dal FrontEnd, con l'uso di Promise e richieste Asincrone</li>
+                <li class="list-group-item"><mark>La libreria router decide le chiamate da fare al DB in base al tipo di richiesta (GET, PUT, POST o DELETE) e all'indirizzo richiesto (Esempio: "localhost:8080/categoria/10")</mark>, facendo quindi al DB la query conseguente</li>
+                <li class="list-group-item">Il risultato della Query, poi, viene tradotto in un pacchetto Json e Mandato al Frontend, sfruttando il Server-Service scritto ad hoc in Angular</li>
+                <li class="list-group-item">Non ho realizzato, sebbene sia piuttosto semplice, la possibilità di scrivere o generare direttamente la Query nel Front End, per <mark>evitare rischi di Sicurezza quali SQL-Injection</mark>. Avrei potuto realizzare una semplice richiesta POST con la Query come parametro, ma avrebbe aperto la strada ad attacchi al DB</li>
+            </ul>
+        </div>
+        <div class="border-0 bg-light rounded">
+            <h3>Frontend con Angular e BootStrap</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Ho scelto di usare Angular e Bootstrap perchè già trattati in un modulo precedente e perchè mi permettono di creare velocemente Layout Responsive e Siti Web dinamici, integrandosi molto bene col Back-End Express</li>
+                <li class="list-group-item">In base al Json inviato dal Backend e ricevuto dal Server-Service, infatti, è possibile creare interfacce che si Auto-Generano sulla base dei dati ricevuti</li>
+                <li class="list-group-item">Un controllo delle operazioni avviene direttamente nel Frontend, per esempio <mark>nascondendo il pulsante Elimina dalle Categorie con Auto presenti</mark> , oppure <mark>controllando la tipologia dei dati inseriti nei Form</mark></li>
+                <li class="list-group-item">Inoltre, con questa tecnologia, riduco l'affaticamento del Backend e del Database, in quanto l'elaborazione grafica è realizzata localmente nel client</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-4 border-0 bg-light rounded">
+        <h1>Istruzioni Per L'Uso</h1>
+        <h3>Dove Trovare il codice</h3>
+        <p>Ho messo online il codice all'indirizzo <a href="https://github.com/Ciull0/DbDanieleCiulli">https://github.com/Ciull0/DbDanieleCiulli</a></p>
+        <p>Il progetto poi dovrà essere scaricato (o clonato il repository) per essere eseguito localmente</p>
+        <br>
+        <h3>Come Avviare il Progetto</h3>
+        <ol>
+            <li>
+                Verifica che il Database MySQL sia attivo, e controlla la porta, utente e password del db nel file <code>index.js</code> nella cartella <code>ProgettoDatabase/server/src</code> ProgettoDatabase/server/src
+            </li>
+            <li>
+                Apri un Command Prompt nella cartella <code>ProgettoDatabase\server\src</code> ed esegui il comando <code>node index.js</code>.
+                Questo Aprirà il Server del Db sulla porta 8080 del localhost usando Node.js
+            </li>
+            <li>
+                Con un secondo Command Prompt, vai nella cartella <code>ProgettoDatabase</code> e, con Angular10 installato, esegui il comando <code>ng serve --open</code>.
+                Al termine della compilazione di Angular, si aprirà una finestra del browser con il progetto visibile all'indirizzo localhost:4200. 
+            </li>
+        </ol>
+    </div>
+</div>

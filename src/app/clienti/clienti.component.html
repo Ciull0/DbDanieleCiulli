@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<div class="row">
+    <div class="col-lg-8">
+        <h1>Clienti</h1>
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Nascita</th>
+                <th>Indirizzo</th>
+                <th>Carta di Credito</th>
+                <th>Opzioni</th>
+            </thead>
+            <tbody *ngFor="let cliente of clienti">
+                <td>{{cliente.nome}}</td>
+                <td>{{cliente.cognome}}</td>
+                <td>{{cliente.data_nascita.substring(0,10)}}</td>
+                <td>{{cliente.indirizzo}}</td>
+                <td>{{cliente.carta_credito}}</td>
+                <td>
+                    <button class="btn btn-success" (click)="guardaNoleggi(cliente)">Noleggi</button>
+                </td>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-4">
+        <h1>Inserisci Cliente</h1>
+        <form action="" [formGroup]="form" (ngSubmit) = "aggiungiCliente()" class="form-group">
+            <input type="text" placeholder="Nome" formControlName = "nome" class="form-control">
+            <br>
+            <input type="text" placeholder="Cognome" formControlName = "cognome" class="form-control">
+            <br>
+            <input type="date" placeholder="Data di Nascita" formControlName = "data_nascita" class="form-control">
+            <br>
+            <input type="text" placeholder="Indirizzo" formControlName = "indirizzo" class="form-control">
+            <br>
+            <input type="number" placeholder="Carta Credito" formControlName = "carta_credito" class="form-control">
+            <br>
+            <input type="submit" value="Registra" class="btn btn-primary">
+        </form>
+    </div>
+</div>
+
+<app-noleggio-utente *ngIf="clienteSel" [clienteSel]="clienteSel"></app-noleggio-utente>

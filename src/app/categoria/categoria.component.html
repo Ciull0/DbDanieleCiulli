@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+<div class="row">
+  <div class="col-lg-8">
+    <h1>Categorie <button class="btn btn-success" (click)="ngOnInit()">Aggiorna</button></h1>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Descrizione</th>
+            <th scope="col">Prezzo Giornaliero</th>
+            <th scope="col">Prezzo Settimanale</th>
+            <th scope="col">Prezzo Mensile</th>
+            <th scope="col">Opzioni</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let categoria of categorie">
+            <th scope="row">{{categoria.id}}</th>
+            <td>{{categoria.descrizione}}</td>
+            <td>{{categoria.prezzo_giornaliero}}</td>
+            <td>{{categoria.prezzo_settimanale}}</td>
+            <td>{{categoria.prezzo_mensile}}</td>
+            <td>
+              <button class="btn btn-warning" (click)="selezionaCategoria(categoria)">Dettagli</button>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+  <div class="col-lg-4">
+    <h1>Inserisci Categoria</h1>
+    <app-form></app-form>
+  </div>
+</div>
+<div class="border-top my-3"></div>
+<div class="row">
+  <div class="col-lg-8" *ngIf="categoriaSel">
+    <h1>
+      {{categoriaSel.descrizione}} 
+      <button class="btn btn-danger" *ngIf="autoDiCategoria.length == 0" (click)="eliminaCategoria(categoriaSel)">ELIMINA</button>
+    </h1>
+      <table class="table table-striped">
+        <thead>
+          <th>Marca</th>
+          <th>Modello</th>
+          <th>Colore</th>
+          <th>Opzioni</th>
+        </thead>
+        <tbody *ngFor="let auto of autoDiCategoria">                
+          <td>{{auto.marca}}</td>
+          <td>{{auto.modello}}</td>
+          <td>{{auto.colore}}</td>
+          <td>
+            <button class="btn btn-danger" (click)="eliminaAuto(auto)">ELIMINA</button>
+          </td>
+        </tbody>
+    </table>
+  </div>
+  <div class="col-lg-4" *ngIf="categoriaSel">
+    <h1>Modifica Categoria</h1>
+    <app-form [catSelezionata]="categoriaSel"></app-form>
+  </div>
+</div>
+  

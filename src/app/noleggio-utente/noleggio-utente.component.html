@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-lg-8">
+        <h1>
+            {{clienteSel.nome}} {{clienteSel.cognome}}
+            <button class="btn btn-danger" (click)="eliminaCliente(clienteSel)" *ngIf="noleggiCliente.length == 0">Elimina Cliente</button>
+        </h1>
+        <table class="table table-striped">
+            <thead>
+                <th>Inizio</th>
+                <th>Fine</th>
+                <th>Auto</th>
+                <th>Categoria</th>
+                <th>Costo</th>
+                <th>Opzioni</th>
+            </thead>
+            <tbody *ngFor="let noleggio of noleggiCliente">
+                <td>{{noleggio.data_inizio.substring(0,10)}}</td>
+                <td>{{noleggio.data_fine.substring(0,10)}}</td>
+                <td>{{noleggio.marca}} {{noleggio.modello}} {{noleggio.colore}}</td>
+                <td>{{noleggio.descrizione}}</td>
+                <td>{{noleggio.costo}} Euro</td>
+                <td>
+                    <button class="btn btn-danger" (click)="eliminaNoleggio(noleggio)">ELIMINA</button>
+                </td>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-4">
+        <h1>Inserisci Nuovo Noleggio</h1>
+        <form action="" [formGroup]="formNoleggio" (ngSubmit) = "aggiungiNoleggio()" class="form-group">
+            <div class="bootstrap-select-wrapper">
+                <label>Scegli Una Auto: </label>
+                <select #selCombo formControlName="id_auto" class="select" title="Scegli Una Auto">
+                    <option class="form-control" *ngFor = "let auto of autoDisponibili" [ngValue]="auto.id">{{auto.marca}} {{auto.modello}} {{auto.colore}}</option>
+                </select>
+            </div>
+            <input type="date" placeholder="Data Inizio" formControlName = "data_inizio" class="form-control">
+            <br>
+            <input type="date" placeholder="Data Fine" formControlName = "data_fine" class="form-control">
+            <br>
+            <input type="submit" value="Registra" class="btn btn-primary">
+        </form>
+    </div>
+</div>
