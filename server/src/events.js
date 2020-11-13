@@ -7,6 +7,8 @@ function createRouter(db) {
 
   // the routes are defined here
 
+
+  //inserisce una nuova categoria
   router.post('/categoria', (req, res, next) => {
     db.query(
       'INSERT INTO categoria (descrizione, prezzo_giornaliero, prezzo_settimanale, prezzo_mensile) VALUES (?,?,?,?)',
@@ -23,6 +25,7 @@ function createRouter(db) {
     );
   });
 
+  //inserisce un nuovo cliente
   router.post('/cliente', (req, res, next) => {
     db.query(
       'INSERT INTO cliente (nome,cognome,data_nascita,indirizzo,carta_credito) VALUES (?,?,?,?,?)',
@@ -39,6 +42,7 @@ function createRouter(db) {
     );
   });
 
+  //mostra tutte le categoriw
   router.get('/categoria', function (req, res, next) {
     db.query(
       'SELECT id, descrizione, prezzo_giornaliero, prezzo_settimanale, prezzo_mensile FROM categoria',
@@ -55,6 +59,7 @@ function createRouter(db) {
     );
   });
 
+  //mostra tutti i clienti
   router.get('/clienti', function (req, res, next) {
     db.query(
       'SELECT id, nome, cognome, data_nascita, indirizzo , carta_credito FROM cliente',
@@ -71,6 +76,7 @@ function createRouter(db) {
     );
   });
 
+  //mostra auto di una certa categoria
   router.get('/categoria/:id', function (req, res, next) {
     console.log(req.params.id);
     db.query(
@@ -88,6 +94,7 @@ function createRouter(db) {
     );
   });
 
+  //mostra noleggi, auto noleggiate, durata dei noleggi, e costi dei noleggi di un cliente
   router.get('/clienti/:id', function (req, res, next) {
     console.log(req.params.id);
     db.query(
@@ -105,6 +112,7 @@ function createRouter(db) {
     );
   });
 
+  //mostra le auto disponibili OGGI
   router.get('/autodisponibili', function (req, res, next) {
     console.log(req.params.id);
     db.query(
@@ -122,6 +130,7 @@ function createRouter(db) {
     );
   });
 
+  //inserisce un nuovo noleggio con un cliente e una auto
   router.post('/noleggio', (req, res, next) => {
     db.query(
       'INSERT INTO noleggio (id_cliente,id_auto,data_inizio,data_fine) VALUES (?,?,?,?)',
@@ -138,6 +147,7 @@ function createRouter(db) {
     );
   });
 
+  //modifica una categoria esistente
   router.put('/categoria/:id', function (req, res, next) {
     db.query(
       'UPDATE categoria SET descrizione = ?, prezzo_giornaliero = ?, prezzo_settimanale = ?, prezzo_mensile = ? WHERE id=?',
@@ -152,6 +162,7 @@ function createRouter(db) {
     );
   });
 
+  //elimina una categoria
   router.delete('/categoria/:id', function (req, res, next) {
     db.query(
       'DELETE FROM categoria WHERE id=?',
@@ -166,6 +177,7 @@ function createRouter(db) {
     );
   });
 
+  //elimina un cliente
   router.delete('/clienti/:id', function (req, res, next) {
     db.query(
       'DELETE FROM cliente WHERE id=?',
@@ -181,6 +193,7 @@ function createRouter(db) {
     );
   });
 
+  //elimina un noleggio
   router.delete('/noleggio/:id', function (req, res, next) {
     db.query(
       'DELETE FROM noleggio WHERE id=?',
@@ -196,6 +209,7 @@ function createRouter(db) {
     );
   });
 
+  //elimina una auto
   router.delete('/auto/:id', function (req, res, next) {
     db.query(
       'DELETE FROM auto WHERE id=?',
