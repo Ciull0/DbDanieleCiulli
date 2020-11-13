@@ -21,7 +21,7 @@
             <td>{{categoria.prezzo_settimanale}}</td>
             <td>{{categoria.prezzo_mensile}}</td>
             <td>
-              <button class="btn btn-warning" (click)="selezionaCategoria(categoria)">Dettagli</button>
+              <button class="btn btn-success" (click)="selezionaCategoria(categoria)">Auto</button>
             </td>
           </tr>
         </tbody>
@@ -37,7 +37,7 @@
   <div class="col-lg-8" *ngIf="categoriaSel">
     <h1>
       {{categoriaSel.descrizione}} 
-      <button class="btn btn-danger" *ngIf="autoDiCategoria.length == 0" (click)="eliminaCategoria(categoriaSel)">ELIMINA</button>
+      <button class="btn btn-danger" *ngIf="autoDiCategoria.length == 0" (click)="eliminaCategoria(categoriaSel)">ELIMINA CATEGORIA</button>
     </h1>
       <table class="table table-striped">
         <thead>
@@ -51,7 +51,7 @@
           <td>{{auto.modello}}</td>
           <td>{{auto.colore}}</td>
           <td>
-            <button class="btn btn-danger" (click)="eliminaAuto(auto)">ELIMINA</button>
+            <button class="btn btn-danger" (click)="eliminaAuto(auto)">ELIMINA AUTO</button>
           </td>
         </tbody>
     </table>
