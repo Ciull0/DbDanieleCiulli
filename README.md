@@ -1,27 +1,18 @@
-# ProgettoDatabase
+# Progetto Database di Daniele Ciulli
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
+## Dove può trovare il codice MySql?
+Il codice MySQL è nella del file events.js nella cartella server/src
+Sono rapidamente accessibili qui: https://github.com/Ciull0/DbDanieleCiulli/blob/main/server/src/events.js
 
-## Development server
+## Istruzioni Per L'Uso
+Dove Trovare il codice
+Ho messo online il codice all'indirizzo https://github.com/Ciull0/DbDanieleCiulli
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Il progetto poi dovrà essere scaricato (o clonato il repository) per essere eseguito localmente
 
-## Code scaffolding
+## Come Avviare il Progetto Localmente
+1) Verifica che il Database MySQL sia attivo, e controlla la porta, utente e password del db nel file index.js nella cartella ProgettoDatabase/server/src ProgettoDatabase/server/src
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2) Apri un Command Prompt nella cartella ProgettoDatabase\server\src ed esegui il comando node index.js. Questo Aprirà il Server del Db sulla porta 8080 del localhost usando Node.js
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+3) Con un secondo Command Prompt, vai nella cartella ProgettoDatabase e, con Angular10 installato, esegui il comando ng serve --open. Al termine della compilazione di Angular, si aprirà una finestra del browser con il progetto visibile all'indirizzo localhost:4200.
